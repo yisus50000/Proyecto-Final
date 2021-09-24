@@ -16,7 +16,7 @@ public class MainBiblioteca {
 
 		List<Libro> listLibros = new ArrayList<Libro>();
 		List<Estudiante> listEstudiantes = new ArrayList<Estudiante>();
-
+		Libro libros = new Libro();
 		do {
 			System.out.println("************Bienvenido a la biblioteca*************");
 			System.out.println("Elija el tipo de usuario que es: ");
@@ -37,7 +37,20 @@ public class MainBiblioteca {
 					datos = teclado.nextLine();
 					System.out.println("Digite el autor del libro");
 					datos = teclado.nextLine();
-					datos.contains(datos);
+					libros.getNombre();
+					libros.getAutor();
+					boolean busqueda = datos.contains(libros.getNombre());
+					busqueda = datos.contains(libros.getAutor());
+					
+					if (busqueda == true) {
+						for(int i = 0; i<1000 ; i++) {
+							
+						System.out.println(datos.contains(libros.toString()));
+						
+						}
+					} else if (busqueda == false) {
+						System.out.println("El libro no ha sido encontrado");
+					}
 					break;
 
 				case "b":
@@ -49,18 +62,21 @@ public class MainBiblioteca {
 					break;
 				default:
 					System.out.println("Digite una opcion valida");
+					break;
 				}
 
 				break;
+
 			case "2":
 				System.out.println("a. Ingresar un libro ");
 				System.out.println("b. Prestar un libro ");
-				System.out.println("c. Aplazarar fecha de entrega ");
+				System.out.println("c. Aplazar fecha de entrega ");
 				seleccion = teclado.nextLine();
 				switch (seleccion) {
+				
 				case "a":
+
 					for (int i = 0; i < 100; i++) {
-						Libro libros = new Libro();
 						System.out.println("Digite el codigo del libro: ");
 						String codigo = teclado.nextLine();
 						System.out.println("Digite nombre del libro: ");
@@ -83,10 +99,12 @@ public class MainBiblioteca {
 						libros.setCantidadPaginas(paginas);
 						libros.setPrecio(precio);
 						listLibros.add(libros);
+
 						System.out.println("Elija el tipo de libro: ");
 						System.out.println("1. Libro de trabajo");
 						System.out.println("2. Libro de lectura");
 						String tipolec = teclado.nextLine();
+
 						switch (tipolec) {
 						case "1":
 							System.out.println("Digite codigo de autorizacion: ");
@@ -100,12 +118,28 @@ public class MainBiblioteca {
 							break;
 						default:
 							System.out.println("Digite un parametro valido");
-							break;
+							
 						}
+						break;
 					}
+
 					break;
+
 				case "b":
 
+					System.out.println("Digite el codigo del libro: ");
+					String codigo = teclado.nextLine();
+					switch (codigo) {
+					case "1":
+						System.out.println("");
+						break;
+					case "2":
+						System.out.println("El libro no ha sido prestado");
+						break;
+					default:
+						System.out.println("Digite un parametro valido");
+						break;
+					}
 					break;
 				case "c":
 
@@ -115,6 +149,7 @@ public class MainBiblioteca {
 					break;
 				}
 				break;
+
 			case "3":
 				System.out.println("Cerrando el sistema");
 				break;

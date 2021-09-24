@@ -69,12 +69,8 @@ public class Libro {
 
 	@Override
 	public String toString() {
-		return "Libro [codigo=" + codigo + ", nombre=" + nombre + ", autor=" + autor + ", añoPublicacion="
-				+ añoPublicacion + ", editorial=" + editorial + ", cantidadPaginas=" + cantidadPaginas + ", precio="
-				+ precio + ", getCodigo()=" + getCodigo() + ", getNombre()=" + getNombre() + ", getAutor()="
-				+ getAutor() + ", getAñoPublicacion()=" + getAñoPublicacion() + ", getEditorial()=" + getEditorial()
-				+ ", getCantidadPaginas()=" + getCantidadPaginas() + ", getPrecio()=" + getPrecio() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+		return "Libros:\n Código: " + codigo + " - Nombre: " + nombre + " - Autor: " + autor + " - Año: "
+				+ añoPublicacion + " - Estado: " + editorial + " - Fecha Entrega: " + cantidadPaginas ;
 	}
 	
 }
