@@ -13,7 +13,6 @@ public class Libro extends MainBiblioteca {
 	public String estado;
 	public LocalDate diaEntrega;
 	public String cedula;
-
 	public int precio;
 
 	// Metodos SET y GET
@@ -86,7 +85,7 @@ public class Libro extends MainBiblioteca {
 		return diaEntrega;
 	}
 
-	public void setDiaHoy(LocalDate diaEntrega) {
+	public void setDiaEntrega(LocalDate diaEntrega) {
 		this.diaEntrega = diaEntrega;
 	}
 

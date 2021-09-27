@@ -44,11 +44,11 @@ public class MainBiblioteca {
 				switch (seleccion) {
 				case "a":
 					System.out.println("Digite el nombre o autor del libro: ");
-					String busqueda = teclado.nextLine();
+					buscar = teclado.nextLine();
 					for (int i = 0; i < listLibros.size(); i++) {
 
-						if (listLibros.get(i).getNombre().contains(busqueda)
-								|| listLibros.get(i).getAutor().contains(busqueda)) {
+						if (listLibros.get(i).getNombre().contains(buscar)
+								|| listLibros.get(i).getAutor().contains(buscar)) {
 
 							System.out.println(listLibros.get(i).toString());
 
@@ -70,24 +70,24 @@ public class MainBiblioteca {
 					for (int k = 0; k < listLibros.size(); k++) {
 						if (codigo.equals(listLibros.get(k).getCodigo())) {
 							listLibros.get(k).setCedula(cedula);
-						
-						if (listLibros.get(k).getEstado().equals("Disponible")) {
-							LocalDate diaEntrega = diaActual.plusDays(5);
-							listLibros.get(k).setEstado("Reservado");
-							System.out.println("El Libro a sido perfectamente reservado ");
-							System.out.println("Pase a retirarlo a la biblioteca");
-							System.out.println("Fecha de entrega = "
-									+ diaEntrega.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-							System.out.println("****Tenga un excelente dia*****");
-							System.out.println(" ,;;;, ,;;;,");
-							System.out.println(";;;' ';' ';;;");
-							System.out.println(";;;       ;;;");
-							System.out.println(" ';;,   ,;;'");
-							System.out.println("   ';;,;;'");
-							System.out.println("     ';'  ");
-						} else {
-							System.out.println("El libro no se encuentra disponible");
-						}
+
+							if (listLibros.get(k).getEstado().equals("Disponible")) {
+								LocalDate diaEntrega = diaActual.plusDays(5);
+								listLibros.get(k).setEstado("Reservado");
+								System.out.println("El Libro a sido perfectamente reservado ");
+								System.out.println("Pase a retirarlo a la biblioteca");
+								System.out.println("Fecha de entrega = "
+										+ diaEntrega.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+								System.out.println("****Tenga un excelente dia*****");
+								System.out.println(" ,;;;, ,;;;,");
+								System.out.println(";;;' ';' ';;;");
+								System.out.println(";;;       ;;;");
+								System.out.println(" ';;,   ,;;'");
+								System.out.println("   ';;,;;'");
+								System.out.println("     ';'  ");
+							} else {
+								System.out.println("El libro no se encuentra disponible");
+							}
 						}
 					}
 
@@ -134,8 +134,8 @@ public class MainBiblioteca {
 						precio = tecladoint.nextInt();
 						libros.setPrecio(precio);
 						libros.setEstado("Disponible");
+						libros.setDiaEntrega(diaActual);
 						listLibros.add(libros);
-
 						System.out.println("Elija el tipo de libro: ");
 						System.out.println("1. Libro de trabajo");
 						System.out.println("2. Libro de lectura");
@@ -202,9 +202,11 @@ public class MainBiblioteca {
 
 					for (int n = 0; n < listLibros.size(); n++) {
 						buscar = listLibros.get(n).getEstado();
+						
 						if (codigo.equals(listLibros.get(n).getCodigo()) && cedula == listLibros.get(n).getCedula()
-								&& buscar == listLibros.get(n).getEstado()) {
+								&& buscar==listLibros.get(n).getEstado()) {
 							System.out.println(listLibros.get(n).toString1());
+							
 							System.out.println("Elija una opcion: ");
 							System.out.println("1. Aplazar");
 							System.out.println("2. No Aplazar");
@@ -231,8 +233,8 @@ public class MainBiblioteca {
 					}
 
 				}
-				break;
 
+				break;
 			case "3":
 				System.out.println("Cerrando el sistema");
 				break;
