@@ -70,7 +70,7 @@ public class MainBiblioteca {
 					for (int k = 0; k < listLibros.size(); k++) {
 						if (codigo.equals(listLibros.get(k).getCodigo())) {
 							listLibros.get(k).setCedula(cedula);
-						}
+						
 						if (listLibros.get(k).getEstado().equals("Disponible")) {
 							LocalDate diaEntrega = diaActual.plusDays(5);
 							listLibros.get(k).setEstado("Reservado");
@@ -87,6 +87,7 @@ public class MainBiblioteca {
 							System.out.println("     ';'  ");
 						} else {
 							System.out.println("El libro no se encuentra disponible");
+						}
 						}
 					}
 
