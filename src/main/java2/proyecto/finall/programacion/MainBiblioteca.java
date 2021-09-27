@@ -44,11 +44,11 @@ public class MainBiblioteca {
 				switch (seleccion) {
 				case "a":
 					System.out.println("Digite el nombre o autor del libro: ");
-					buscar = teclado.nextLine();
+					String busqueda = teclado.nextLine();
 					for (int i = 0; i < listLibros.size(); i++) {
 
-						if (listLibros.get(i).getNombre().contains(buscar)
-								|| listLibros.get(i).getAutor().contains(buscar)) {
+						if (listLibros.get(i).getNombre().contains(busqueda)
+								|| listLibros.get(i).getAutor().contains(busqueda)) {
 
 							System.out.println(listLibros.get(i).toString());
 
@@ -68,7 +68,7 @@ public class MainBiblioteca {
 					cedula = teclado.nextLine();
 
 					for (int k = 0; k < listLibros.size(); k++) {
-						if (listLibros.get(k).getCodigo().equals(codigo)) {
+						if (codigo.equals(listLibros.get(k).getCodigo())) {
 							listLibros.get(k).setCedula(cedula);
 						}
 						if (listLibros.get(k).getEstado().equals("Disponible")) {
@@ -87,13 +87,6 @@ public class MainBiblioteca {
 							System.out.println("     ';'  ");
 						} else {
 							System.out.println("El libro no se encuentra disponible");
-							System.out.println("****Tenga un excelente dia*****");
-							System.out.println(" ,;;;, ,;;;,");
-							System.out.println(";;;' ';' ';;;");
-							System.out.println(";;;       ;;;");
-							System.out.println(" ';;,   ,;;'");
-							System.out.println("   ';;,;;'");
-							System.out.println("     ';'  ");
 						}
 					}
 
@@ -127,9 +120,9 @@ public class MainBiblioteca {
 						System.out.println("Digite autor del libro: ");
 						autor = teclado.nextLine();
 						libros.setAutor(autor);
-						System.out.println("Digite año de publicacion del libro: ");
+						System.out.println("Digite aÃ±o de publicacion del libro: ");
 						anio = teclado.nextLine();
-						libros.setAñoPublicacion(anio);
+						libros.setAÃ±oPublicacion(anio);
 						System.out.println("Digite editorial del libro: ");
 						editorial = teclado.nextLine();
 						libros.setEditorial(editorial);
