@@ -1,6 +1,7 @@
 package proyecto.finall.programacion;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Libro extends MainBiblioteca {
 
@@ -100,12 +101,12 @@ public class Libro extends MainBiblioteca {
 	@Override
 	public String toString() {
 		return "Libros:\n Código: " + codigo + " - Nombre: " + nombre + " - Autor: " + autor + " - Año: "
-				+ añoPublicacion + " - Estado: " + estado + " - Fecha Entrega: " + diaEntrega;
+				+ añoPublicacion + " - Estado: " + estado + " - Fecha Entrega: " + diaEntrega.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 	}
 	
 	public String toString1() {
 		return "Libros:\n Código: " + codigo + " - Nombre: " + nombre + " - Autor: " + autor + " - Año: "
-				+ añoPublicacion + " - Estado: " + estado + " - Fecha Entrega: " + diaEntrega + " - Prestado a: " + cedula;
+				+ añoPublicacion + " - Estado: " + estado + " - Fecha Entrega: " + diaEntrega.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + " - Prestado a: " + cedula;
 	}
 
 }
