@@ -1,6 +1,8 @@
 package proyecto.finall.programacion;
 
-public class Libro {
+import java.time.LocalDate;
+
+public class Libro extends MainBiblioteca {
 
 	public String codigo;
 	public String nombre;
@@ -8,9 +10,14 @@ public class Libro {
 	public String añoPublicacion;
 	public String editorial;
 	public String cantidadPaginas;
+	public String estado;
+	public LocalDate diaEntrega;
+	public String cedula;
+
 	public int precio;
 
-	//Metodos SET y GET
+	// Metodos SET y GET
+
 	public String getCodigo() {
 		return codigo;
 	}
@@ -24,7 +31,7 @@ public class Libro {
 	}
 
 	public void setNombre(String nombre) {
-		this.nombre = nombre; 
+		this.nombre = nombre;
 	}
 
 	public String getAutor() {
@@ -67,11 +74,39 @@ public class Libro {
 		this.precio = precio;
 	}
 
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public LocalDate getDiaEntrega() {
+		return diaEntrega;
+	}
+
+	public void setDiaHoy(LocalDate diaEntrega) {
+		this.diaEntrega = diaEntrega;
+	}
+
+	public String getCedula() {
+		return cedula;
+	}
+
+	public void setCedula(String cedula) {
+		this.cedula = cedula;
+	}
+
 	@Override
 	public String toString() {
 		return "Libros:\n Código: " + codigo + " - Nombre: " + nombre + " - Autor: " + autor + " - Año: "
-				+ añoPublicacion + " - Estado: " + editorial + " - Fecha Entrega: " + cantidadPaginas ;
+				+ añoPublicacion + " - Estado: " + estado + " - Fecha Entrega: " + diaEntrega;
 	}
 	
-}
+	public String toString1() {
+		return "Libros:\n Código: " + codigo + " - Nombre: " + nombre + " - Autor: " + autor + " - Año: "
+				+ añoPublicacion + " - Estado: " + estado + " - Fecha Entrega: " + diaEntrega + " - Prestado a: " + cedula;
+	}
 
+}
