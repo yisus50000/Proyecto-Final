@@ -14,7 +14,8 @@ public class Libro extends MainBiblioteca {
 	public String estado;
 	public LocalDate diaEntrega;
 	public String cedula;
-	public int precio;
+	public String destino;
+
 
 	// Metodos SET y GET
 
@@ -97,16 +98,28 @@ public class Libro extends MainBiblioteca {
 	public void setCedula(String cedula) {
 		this.cedula = cedula;
 	}
+	
+	public String getDestino() {
+		return destino;
+	}
 
+	public void setDestino(String destino) {
+		this.destino = destino;
+	}
+
+	public int precio;
+	
 	@Override
 	public String toString() {
 		return "Libros:\n Código: " + codigo + " - Nombre: " + nombre + " - Autor: " + autor + " - Año: "
-				+ añoPublicacion + " - Estado: " + estado + " - Fecha Entrega: " + diaEntrega.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+				+ añoPublicacion + " - Estado: " + estado + " - Destino: " + destino.toLowerCase() + " - Fecha Entrega: " 
+				+ diaEntrega.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 	}
 	
 	public String toString1() {
 		return "Libros:\n Código: " + codigo + " - Nombre: " + nombre + " - Autor: " + autor + " - Año: "
-				+ añoPublicacion + " - Estado: " + estado + " - Fecha Entrega: " + diaEntrega.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + " - Prestado a: " + cedula;
+				+ añoPublicacion + " - Estado: " + estado + " - Fecha Entrega: " 
+				+ diaEntrega.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + " - Prestado a: " + cedula;
 	}
 
 }

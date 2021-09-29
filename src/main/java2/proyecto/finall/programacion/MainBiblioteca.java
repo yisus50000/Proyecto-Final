@@ -23,9 +23,10 @@ public class MainBiblioteca {
 		String paginas;
 		String cedula;
 		String buscar;
+		String destino;
 		int precio;
 		LocalDate diaActual = LocalDate.now();
-
+		LocalDate diaEntregar = diaActual.plusDays(5);
 		List<Libro> listLibros = new ArrayList<Libro>();
 
 		do {
@@ -72,12 +73,13 @@ public class MainBiblioteca {
 							listLibros.get(k).setCedula(cedula);
 
 							if (listLibros.get(k).getEstado().equals("Disponible")) {
-								LocalDate diaEntrega = diaActual.plusDays(5);
+
 								listLibros.get(k).setEstado("Reservado");
+								listLibros.get(k).setDiaEntrega(diaEntregar);
 								System.out.println("El Libro a sido perfectamente reservado ");
 								System.out.println("Pase a retirarlo a la biblioteca");
 								System.out.println("Fecha de entrega = "
-										+ diaEntrega.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+										+ diaEntregar.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 								System.out.println("****Tenga un excelente dia*****");
 								System.out.println(" ,;;;, ,;;;,");
 								System.out.println(";;;' ';' ';;;");
@@ -133,6 +135,9 @@ public class MainBiblioteca {
 						System.out.println("Digite precio del libro: ");
 						precio = tecladoint.nextInt();
 						libros.setPrecio(precio);
+					    System.out.println("Digite el destino");
+						destino = teclado.nextLine();
+						libros.setDestino(destino);
 						libros.setEstado("Disponible");
 						libros.setDiaEntrega(diaActual);
 						listLibros.add(libros);
@@ -202,20 +207,19 @@ public class MainBiblioteca {
 
 					for (int n = 0; n < listLibros.size(); n++) {
 						buscar = listLibros.get(n).getEstado();
-						
-						if (codigo.equals(listLibros.get(n).getCodigo()) && cedula == listLibros.get(n).getCedula()
-								&& buscar==listLibros.get(n).getEstado()) {
+						if (codigo.equals(listLibros.get(n).getCodigo()) && cedula.equals(listLibros.get(n).getCedula())
+								&& buscar.equals(listLibros.get(n).getEstado())) {
 							System.out.println(listLibros.get(n).toString1());
-							
+
 							System.out.println("Elija una opcion: ");
 							System.out.println("1. Aplazar");
 							System.out.println("2. No Aplazar");
 							datos = teclado.nextLine();
 							switch (datos) {
 							case "1":
-								LocalDate diaAplazado = diaActual.plusDays(5);
+								LocalDate diaAplazado = diaEntregar.plusDays(5);
 								System.out.println("La fecha ha sido aplazada");
-								System.out.println("Nueva fecha de entrega"
+								System.out.println("Nueva fecha de entrega: \n"
 										+ diaAplazado.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 								break;
 							case "2":
